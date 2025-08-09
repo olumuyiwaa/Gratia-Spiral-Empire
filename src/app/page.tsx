@@ -26,10 +26,10 @@ const GratiaSpiral = () => {
     setFormData({ name: '', email: '', company: '', message: '' });
   };
 
-  const scrollToSection = (sectionId) => {
-    setActiveSection(sectionId);
-    setIsMenuOpen(false);
-  };
+ const scrollToSection = (sectionId: string) => {
+   setActiveSection(sectionId);
+   setIsMenuOpen(false);
+ };
 
   const renderSection = () => {
     switch(activeSection) {
