@@ -191,7 +191,11 @@ const GratiaSpiral = () => {
   );
 };
 
-const HomeSection = ({ scrollToSection }) => (
+type HomeSectionProps = {
+  scrollToSection: (sectionId: string) => void;
+};
+
+const HomeSection = ({ scrollToSection }: HomeSectionProps) => (
   <div>
     {/* Hero Section */}
     <section className="bg-gradient-to-r from-emerald-50 to-emerald-100 py-20">
@@ -380,10 +384,17 @@ const AboutSection = () => (
   </section>
 );
 
-const ProductsSection = () => {
-  const [activeCategory, setActiveCategory] = useState('minerals');
+type ProductCategoryKey = 'minerals' | 'precious' | 'agricultural';
 
-  const productCategories = {
+const ProductsSection = () => {
+  const [activeCategory, setActiveCategory] = useState<ProductCategoryKey>('minerals');
+
+  const productCategories: Record<ProductCategoryKey, {
+    title: string;
+    icon: string;
+    description: string;
+    products: { name: string; description: string }[];
+  }> = {
     minerals: {
       title: 'Solid Minerals',
       icon: '🪨',
@@ -442,7 +453,7 @@ const ProductsSection = () => {
             {Object.entries(productCategories).map(([key, category]) => (
               <button
                 key={key}
-                onClick={() => setActiveCategory(key)}
+                onClick={() => setActiveCategory(key as ProductCategoryKey)}
                 className={`px-6 py-3 rounded-md font-medium transition-colors ${
                   activeCategory === key
                     ? 'bg-white text-emerald-600 shadow-sm'
@@ -668,7 +679,18 @@ const WhyChooseSection = () => (
   </section>
 );
 
-const ContactSection = ({ formData, handleInputChange, handleSubmit }) => (
+type ContactSectionProps = {
+  formData: {
+    name: string;
+    email: string;
+    company: string;
+    message: string;
+  };
+  handleInputChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+  handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+};
+
+const ContactSection = ({ formData, handleInputChange, handleSubmit }: ContactSectionProps) => (
   <section className="py-20">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="text-center mb-16">
