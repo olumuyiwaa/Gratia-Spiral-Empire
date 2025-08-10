@@ -290,14 +290,11 @@ const HomeSection = ({ scrollToSection }: HomeSectionProps) => (
             </div>
           </div>
           <div className="relative">
-            <div className="w-full h-96 bg-gradient-to-br from-emerald-200 to-emerald-300 rounded-2xl flex items-center justify-center">
-              <div className="text-center">
-                <div className="w-24 h-24 bg-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Globe className="text-white" size={40} />
-                </div>
-                <p className="text-emerald-800 font-semibold">Global Trade Excellence</p>
-              </div>
-            </div>
+            <img
+              src="/global-logistics-transportation-network.jpg"
+              alt="Global Logistics Transportation Network"
+              className="w-full h-96 object-cover rounded-2xl shadow-lg"
+            />
           </div>
         </div>
       </div>
@@ -402,12 +399,11 @@ const AboutSection = () => (
             Our expertise lies in creating sustainable value chains that benefit both local communities and global markets, ensuring transparency and quality at every step of the trading process.
           </p>
         </div>
-        <div className="w-full h-80 bg-gradient-to-br from-emerald-100 to-emerald-200 rounded-2xl flex items-center justify-center">
-          <div className="text-center">
-            <Globe className="text-emerald-600 mx-auto mb-4" size={60} />
-            <p className="text-emerald-800 font-semibold">Global Reach, Local Impact</p>
-          </div>
-        </div>
+        <img
+              src="/closeup-shot-male-wearing-leather-jacket-holding-globe-front-him.jpg"
+              alt="Global Logistics Transportation Network"
+              className="w-full h-96 object-cover rounded-2xl shadow-lg"
+            />
       </div>
 
       {/* Mission & Vision */}
@@ -710,12 +706,11 @@ const WhyChooseSection = () => (
             ))}
           </div>
         </div>
-        <div className="w-full h-96 bg-gradient-to-br from-emerald-200 to-emerald-300 rounded-2xl flex items-center justify-center">
-          <div className="text-center">
-            <Award className="text-emerald-700 mx-auto mb-4" size={60} />
-            <p className="text-emerald-800 font-semibold">Excellence in Every Transaction</p>
-          </div>
-        </div>
+        <img
+          src="/african-man-black-suit-big-tv-screen-guy-shows-presentation.jpg"
+          alt="Global Logistics Transportation Network"
+          className="w-full h-96 object-cover rounded-2xl shadow-lg"
+        />
       </div>
 
       {/* Fast & Reliable Fulfillment */}
