@@ -22,7 +22,7 @@ const GratiaSpiral = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    alert('Thank you for your message! We will get back to you within 24 hours.');
+    alert(`Thank you for your message ${formData.name}! We will get back to you via ${formData.email} within 24 hours.`);
     setFormData({ name: '', email: '', company: '', message: '' });
   };
 
