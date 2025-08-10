@@ -756,13 +756,13 @@ const ContactSection = ({ formData, handleInputChange, handleSubmit }: ContactSe
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
               <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleInputChange}
-                required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
-                placeholder="Your full name"
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleInputChange}
+              required
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-black placeholder-gray-500"
+              placeholder="Your full name"
               />
             </div>
             <div>
@@ -773,7 +773,7 @@ const ContactSection = ({ formData, handleInputChange, handleSubmit }: ContactSe
                 value={formData.email}
                 onChange={handleInputChange}
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-black placeholder-gray-500"
                 placeholder="your.email@company.com"
               />
             </div>
@@ -784,7 +784,7 @@ const ContactSection = ({ formData, handleInputChange, handleSubmit }: ContactSe
                 name="company"
                 value={formData.company}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-black placeholder-gray-500"
                 placeholder="Your company name"
               />
             </div>
@@ -796,7 +796,7 @@ const ContactSection = ({ formData, handleInputChange, handleSubmit }: ContactSe
                 onChange={handleInputChange}
                 required
                 rows={5}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-black placeholder-gray-500"
                 placeholder="Tell us about your requirements..."
               ></textarea>
             </div>
