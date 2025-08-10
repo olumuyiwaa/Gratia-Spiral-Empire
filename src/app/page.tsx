@@ -1,6 +1,7 @@
 'use client'
 import React, { useState } from 'react';
 import { Menu, X, ChevronDown, Mail, Phone, MapPin, Send, ArrowRight, Globe, Shield, Clock, Award } from 'lucide-react';
+import emailjs from 'emailjs-com';
 
 const GratiaSpiral = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -20,11 +21,28 @@ const GratiaSpiral = () => {
   };
 
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+// Sends email using EmailJS
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  try {
+    await emailjs.send(
+      'service_id', // to replace with EmailJS service ID
+      'template_id', // to replace with EmailJS template ID
+      {
+        from_name: formData.name,
+        from_email: formData.email,
+        company: formData.company,
+        message: formData.message,
+        to_email: 'oladoyinemmanuel@gmail.com'
+      },
+      'user_id' // to replace with  EmailJS public key
+    );
     alert(`Thank you for your message ${formData.name}! We will get back to you via ${formData.email} within 24 hours.`);
     setFormData({ name: '', email: '', company: '', message: '' });
-  };
+  } catch (error) {
+    alert('Sorry, there was an error sending your message. Please try again later.');
+  }
+};
 
  const scrollToSection = (sectionId: string) => {
    setActiveSection(sectionId);
