@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import emailjs from 'emailjs-com';
 import { Mail, Phone, MapPin, Send, Globe } from 'lucide-react';
 
 const ContactPage = () => {
@@ -17,16 +18,56 @@ const ContactPage = () => {
         });
     };
 
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+    useEffect(() => {
+        const publicKey = "Kg029yKXJTfsBld2c";
+        if (publicKey) {
+            emailjs.init(publicKey);
+        } else {
+            // Optional: warn in dev if the key is missing
+            console.warn('EMAILJS_PUBLIC_KEY is not set');
+        }
+    }, []);
+
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+
+        const serviceId = "service_pgwygzx";
+        const templateId = "template_b88boyc";
+        const publicKey = "Kg029yKXJTfsBld2c";
+
+        if (!serviceId || !templateId || !publicKey) {
+            alert('Email service is not configured. Please try again later.');
+            return;
+        }
+
         try {
-            // Note: Replace with your actual email service (EmailJS, Resend, etc.)
-            // For now, this is a placeholder implementation
-            console.log('Form submitted:', formData);
+            setIsSubmitting(true);
+
+            // Ensure your EmailJS template has variables matching these keys:
+            // from_name, from_email, company, message, to_email (optional if set in dashboard)
+            await emailjs.send(
+                serviceId,
+                templateId,
+                {
+                    from_name: formData.name,
+                    from_email: formData.email,
+                    company: formData.company,
+                    message: formData.message,
+                    to_email: 'gratiaspiralempireou@outlook.com',
+                },
+                publicKey // you can omit this if you called emailjs.init above
+            );
+
             alert(`Thank you for your message ${formData.name}! We will get back to you via ${formData.email} within 24 hours.`);
             setFormData({ name: '', email: '', company: '', message: '' });
-        } catch (error) {
+        } catch (err) {
+            // eslint-disable-next-line no-console
+            console.error('Email send failed:', err);
             alert('Sorry, there was an error sending your message. Please try again later.');
+        } finally {
+            setIsSubmitting(false);
         }
     };
 

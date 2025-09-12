@@ -7,8 +7,8 @@ const Footer = () => {
     return (
         <footer className="bg-gradient-to-r from-emerald-600 to-emerald-800 text-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-                    <div className="col-span-1 md:col-span-2">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-y-10 gap-x-[clamp(1rem,3vw,2rem)]">
+                    <div className="col-span-2">
                         <Link href="/" className="flex items-center mb-4">
                             <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
                                 <span className="text-emerald-600 font-bold text-xl">G</span>
@@ -48,8 +48,8 @@ const Footer = () => {
                             </SocialLink>
                         </div>
                     </div>
-                    <div>
-                        <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+                    <div className="col-start-4">
+                    <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
                         <ul className="space-y-2 text-emerald-100">
                             <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
                             <li><Link href="/products" className="hover:text-white transition-colors">Products</Link></li>
@@ -57,20 +57,20 @@ const Footer = () => {
                             <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
                         </ul>
                     </div>
-                    <div>
-                        <h3 className="text-lg font-semibold mb-4">Newsletter</h3>
-                        <p className="text-emerald-100 mb-4 text-sm">Subscribe for market updates and industry insights.</p>
-                        <div className="space-y-2">
-                            <input
-                                type="email"
-                                placeholder="Your email"
-                                className="w-full px-3 py-2 bg-white/10 border border-emerald-400 rounded-lg text-white placeholder-emerald-200 focus:outline-none focus:ring-2 focus:ring-white"
-                            />
-                            <button className="w-full bg-white text-emerald-600 px-4 py-2 rounded-lg font-medium hover:bg-emerald-50 transition-colors">
-                                Sign Up
-                            </button>
-                        </div>
-                    </div>
+                    {/*<div>*/}
+                    {/*    <h3 className="text-lg font-semibold mb-4">Newsletter</h3>*/}
+                    {/*    <p className="text-emerald-100 mb-4 text-sm">Subscribe for market updates and industry insights.</p>*/}
+                    {/*    <div className="space-y-2">*/}
+                    {/*        <input*/}
+                    {/*            type="email"*/}
+                    {/*            placeholder="Your email"*/}
+                    {/*            className="w-full px-3 py-2 bg-white/10 border border-emerald-400 rounded-lg text-white placeholder-emerald-200 focus:outline-none focus:ring-2 focus:ring-white"*/}
+                    {/*        />*/}
+                    {/*        <button className="w-full bg-white text-emerald-600 px-4 py-2 rounded-lg font-medium hover:bg-emerald-50 transition-colors">*/}
+                    {/*            Sign Up*/}
+                    {/*        </button>*/}
+                    {/*    </div>*/}
+                    {/*</div>*/}
                 </div>
                 <div className="border-t border-emerald-500 mt-8 pt-8 text-center text-emerald-100">
                     <p>&copy; 2025 Gratia Spiral Empire. All rights reserved.</p>
