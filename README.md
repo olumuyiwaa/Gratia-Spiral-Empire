@@ -35,3 +35,30 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 # Gratia-Spiral-Empire
+
+#File structure
+src/
+├── app/
+│   ├── layout.tsx                 // Root layout with header and footer
+│   ├── page.tsx                   // Home page
+│   ├── about/
+│   │   └── page.tsx              // About page
+│   ├── products/
+│   │   └── page.tsx              // Products page
+│   ├── export/
+│   │   └── page.tsx              // Export & Sourcing page
+│   ├── why-choose/
+│   │   └── page.tsx              // Why Choose Us page
+│   ├── contact/
+│   │   └── page.tsx              // Contact page
+│   └── globals.css               // Global styles
+├── components/
+│   ├── Header.tsx                // Navigation header
+│   ├── Footer.tsx                // Footer component
+│   └── ui/                       // Reusable UI components
+│       ├── Button.tsx
+│       └── ContactForm.tsx
+├── lib/
+│   └── utils.ts                  // Utility functions
+└── types/
+└── index.ts                  // TypeScript type definitions
