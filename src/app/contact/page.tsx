@@ -33,7 +33,7 @@ const ContactPage = () => {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        const serviceId = "service_pgwygzx";
+        const serviceId = "service_lej2two";
         const templateId = "template_b88boyc";
         const publicKey = "Kg029yKXJTfsBld2c";
 
