@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import emailjs from 'emailjs-com';
-import { Mail, Phone, MapPin, Send, Globe } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Globe ,Loader2} from 'lucide-react';
 
 const ContactPage = () => {
     const [formData, setFormData] = useState({
@@ -32,6 +32,7 @@ const ContactPage = () => {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        if (isSubmitting) return;
 
         const serviceId = "service_lej2two";
         const templateId = "template_b88boyc";
@@ -62,10 +63,16 @@ const ContactPage = () => {
 
             alert(`Thank you for your message ${formData.name}! We will get back to you via ${formData.email} within 24 hours.`);
             setFormData({ name: '', email: '', company: '', message: '' });
-        } catch (err) {
+        } catch (err: any) {
             // eslint-disable-next-line no-console
             console.error('Email send failed:', err);
-            alert('Sorry, there was an error sending your message. Please try again later.');
+            console.error('Error details:', {
+                message: err?.message,
+                text: err?.text,
+                status: err?.status,
+                full: err
+            });
+            alert(`Sorry, there was an error sending your message: ${err?.text || err?.message || 'Unknown error'}. Please try again later.`);
         } finally {
             setIsSubmitting(false);
         }
@@ -133,13 +140,26 @@ const ContactPage = () => {
                                     placeholder="Tell us about your requirements..."
                                 ></textarea>
                             </div>
+
                             <button
                                 type="submit"
-                                className="w-full bg-emerald-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-emerald-700 transition-colors flex items-center justify-center"
+                                disabled={isSubmitting}
+                                aria-busy={isSubmitting}
+                                className="w-full bg-emerald-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-emerald-700 transition-colors flex items-center justify-center disabled:opacity-70 disabled:cursor-not-allowed"
                             >
-                                Send Message
-                                <Send className="ml-2" size={20} />
+                                {isSubmitting ? (
+                                    <>
+                                        <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                                        Sending...
+                                    </>
+                                ) : (
+                                    <>
+                                        Send Message
+                                        <Send className="ml-2" size={20} />
+                                    </>
+                                )}
                             </button>
+
                         </form>
                     </div>
 
