@@ -7,9 +7,6 @@ export const metadata: Metadata = {
     title: 'Gratia Spiral Empire - Global Commodity Trading',
     description: 'Your trusted partner in global commodity trade, connecting Africa\'s natural wealth to global markets through ethical sourcing and strategic partnerships.',
     keywords: 'commodity trading, solid minerals, precious stones, agricultural products, West Africa, export, sourcing',
-    icons: {
-        icon: '/logo1.png',
-    },
 };
 
 export default function RootLayout({
