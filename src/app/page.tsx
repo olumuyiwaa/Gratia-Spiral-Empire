@@ -1,5 +1,10 @@
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+const featureToCategory: Record<string, 'minerals' | 'precious' | 'agricultural'> = {
+  'Solid Minerals': 'minerals',
+  'Precious Stones': 'precious',
+  'Agricultural Products': 'agricultural',
+};
 
 export default function HomePage() {
   return (
@@ -93,13 +98,16 @@ export default function HomePage() {
                   color: 'from-green-500 to-green-600'
                 }
               ].map((feature, index) => (
-                  <div key={index} className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow">
-                    <div className={`w-16 h-16 bg-gradient-to-r ${feature.color} rounded-lg flex items-center justify-center text-2xl mb-6`}>
-                      {feature.icon}
+                  <Link href={`/products#${featureToCategory[feature.title] || 'minerals'}`} className="block">
+                    <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow group-hover:shadow-xl">
+                      <div className={`w-16 h-16 bg-gradient-to-r ${feature.color} rounded-lg flex items-center justify-center text-2xl mb-6`}>
+                        {feature.icon}
+                      </div>
+                      <h3 className="text-xl font-bold text-gray-900 mb-4">{feature.title}</h3>
+                      <p className="text-gray-600 leading-relaxed">{feature.description}</p>
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">{feature.title}</h3>
-                    <p className="text-gray-600 leading-relaxed">{feature.description}</p>
-                  </div>
+                  </Link>
+
               ))}
             </div>
           </div>

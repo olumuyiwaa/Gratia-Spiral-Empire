@@ -1,11 +1,27 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, {useEffect,useState } from 'react';
 
 type ProductCategoryKey = 'minerals' | 'precious' | 'agricultural';
 
 const ProductsPage = () => {
     const [activeCategory, setActiveCategory] = useState<ProductCategoryKey>('minerals');
+
+    useEffect(() => {
+        if (typeof window === 'undefined') return;
+
+        const hash = window.location.hash?.replace('#', '') as ProductCategoryKey | '';
+        const valid: ProductCategoryKey[] = ['minerals', 'precious', 'agricultural'];
+
+        if (hash && valid.includes(hash)) {
+            setActiveCategory(hash);
+            // Scroll after state updates and DOM paints
+            setTimeout(() => {
+                const el = document.getElementById(hash);
+                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 0);
+        }
+    }, []);
 
     const productCategories: Record<ProductCategoryKey, {
         title: string;
@@ -65,13 +81,25 @@ const ProductsPage = () => {
                     </p>
                 </div>
 
+                {/* Anchor targets for direct navigation */}
+                <div id="minerals" className="scroll-mt-28" />
+                <div id="precious" className="scroll-mt-28" />
+                <div id="agricultural" className="scroll-mt-28" />
+
                 {/* Category Tabs */}
                 <div className="flex justify-center mb-12">
                     <div className="bg-gray-100 p-1 rounded-lg flex">
                         {Object.entries(productCategories).map(([key, category]) => (
                             <button
                                 key={key}
-                                onClick={() => setActiveCategory(key as ProductCategoryKey)}
+                                onClick={() => {
+                                    const k = key as ProductCategoryKey;
+                                    setActiveCategory(k);
+                                    if (typeof window !== 'undefined') {
+                                        history.replaceState(null, '', `#${k}`);
+                                    }
+                                }}
+
                                 className={`px-6 py-3 rounded-md font-medium transition-colors ${
                                     activeCategory === key
                                         ? 'bg-white text-emerald-600 shadow-sm'
