@@ -29,7 +29,15 @@ const ContactPage = () => {
             console.warn('EMAILJS_PUBLIC_KEY is not set');
         }
     }, []);
-
+    const locations = [
+        { name: "Tallinn", type: "HQ", x: 58, y: 25 },
+        { name: "Lagos", type: "Operations", x: 52, y: 60 },
+        { name: "Nairobi", type: "Operations", x: 58, y: 58 },
+        { name: "London", type: "Operations", x: 50, y: 28 },
+        { name: "Toronto", type: "Operations", x: 30, y: 28 },
+        { name: "São Paulo", type: "Operations", x: 38, y: 68 },
+        { name: "Sydney", type: "Operations", x: 85, y: 75 },
+    ];
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (isSubmitting) return;
@@ -184,7 +192,7 @@ const ContactPage = () => {
                                 </div>
                                 <div>
                                     <h3 className="font-semibold text-gray-900 mb-1">Phone</h3>
-                                    <p className="text-gray-600">+372 XXX XXX XXX</p>
+                                    <p className="text-gray-600">+372 5391 2363</p>
                                     <p className="text-sm text-gray-500">Business hours: 9AM - 6PM EET</p>
                                 </div>
                             </div>
@@ -195,8 +203,16 @@ const ContactPage = () => {
                                 </div>
                                 <div>
                                     <h3 className="font-semibold text-gray-900 mb-1">Office</h3>
+                                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                                        <div>
                                     <p className="text-gray-600">Tallinn, Estonia</p>
                                     <p className="text-sm text-gray-500">European headquarters</p>
+                                        </div>
+                                        <div>
+                                    <p className="text-gray-600">Lagos, Nigeria</p>
+                                    <p className="text-sm text-gray-500">Operations headquarters</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -237,12 +253,71 @@ const ContactPage = () => {
 
                 {/* Map Section */}
                 <div className="mt-16 bg-white rounded-2xl p-8 shadow-lg">
-                    <h3 className="text-2xl font-bold text-gray-900 text-center mb-8">Our Global Presence</h3>
-                    <div className="w-full h-64 bg-gradient-to-r from-emerald-100 to-blue-100 rounded-xl flex items-center justify-center">
-                        <div className="text-center">
-                            <Globe className="text-emerald-600 mx-auto mb-4" size={48} />
-                            <p className="text-gray-700 font-medium">Interactive map coming soon</p>
-                            <p className="text-gray-500 text-sm">Estonia HQ • West Africa Operations • Global Delivery</p>
+                    <h3 className="text-2xl font-bold text-gray-900 text-center mb-8">
+                        Our Global Presence
+                    </h3>
+
+                    <div className="relative w-full h-[28rem] rounded-xl overflow-hidden bg-gradient-to-br from-blue-50 to-emerald-50">
+                        {/* World Map Background */}
+                        <img
+                            src="/world-map.svg"
+                            alt="World map"
+                            className="absolute inset-0 w-full h-full object-cover opacity-90"
+                        />
+
+                        {/* Overlay markers */}
+                        <div className="absolute inset-0">
+                            {locations.map((loc, idx) => (
+                                <div
+                                    key={idx}
+                                    className="absolute"
+                                    style={{
+                                        left: `${loc.x}%`,
+                                        top: `${loc.y}%`,
+                                        transform: "translate(-50%, -50%)",
+                                    }}
+                                >
+                                    {/* Pulse effect */}
+                                    <div className="relative">
+                                        <span className="absolute w-4 h-4 rounded-full bg-red-400 opacity-40 animate-ping"></span>
+                                        <span className="relative w-3 h-3 rounded-full bg-red-600 border border-white block"></span>
+                                    </div>
+
+                                    {/* Label */}
+                                    <div
+                                        className={`absolute left-1/2 -translate-x-1/2 mt-3 sm:mt-2 sm:-translate-y-full`}
+                                    >
+                                        <div className="bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-lg shadow-md border border-emerald-200 whitespace-nowrap">
+                                            <div className="flex items-center gap-2">
+                                                <MapPin
+                                                    size={14}
+                                                    className={
+                                                        loc.type === "HQ" ? "text-blue-600" : "text-emerald-600"
+                                                    }
+                                                />
+                                                <div>
+                                                    <p className="text-xs font-semibold text-gray-900">
+                                                        {loc.name}
+                                                    </p>
+                                                    <p className="text-xs text-gray-600">{loc.type}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Legend */}
+                    <div className="mt-6 flex justify-center gap-8 text-sm flex-wrap">
+                        <div className="flex items-center gap-2">
+                            <MapPin size={16} className="text-blue-600" />
+                            <span className="text-gray-700">Headquarters</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <MapPin size={16} className="text-emerald-600" />
+                            <span className="text-gray-700">Operations</span>
                         </div>
                     </div>
                 </div>

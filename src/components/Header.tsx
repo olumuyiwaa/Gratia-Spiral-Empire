@@ -27,7 +27,7 @@ const Header = () => {
                     {/* Logo */}
                     <Link href="/" className="flex items-center">
                         <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-700 rounded-lg flex items-center justify-center">
-                            <span className="text-white font-bold text-xl">G</span>
+                            <img src="/logo.png" alt="Gratia Spiral Empire" className="w-12 rounded"/>
                         </div>
                         <span className="ml-3 text-xl font-bold text-gray-900">Gratia Spiral Empire</span>
                     </Link>

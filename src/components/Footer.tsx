@@ -11,7 +11,7 @@ const Footer = () => {
                     <div className="col-span-2">
                         <Link href="/" className="flex items-center mb-4">
                             <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
-                                <span className="text-emerald-600 font-bold text-xl">G</span>
+                                <img src="/logo1.png" alt="Gratia Spiral Empire" className="w-12 rounded"/>
                             </div>
                             <span className="ml-3 text-xl font-bold">Gratia Spiral Empire</span>
                         </Link>

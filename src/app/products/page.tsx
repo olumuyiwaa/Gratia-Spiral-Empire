@@ -11,19 +11,19 @@ const ProductsPage = () => {
         title: string;
         icon: string;
         description: string;
-        products: { name: string; description: string }[];
+        products: { name: string; image: string; description: string }[];
     }> = {
         minerals: {
             title: 'Solid Minerals',
             icon: '🪨',
             description: 'High-quality minerals sourced responsibly from verified mines across West Africa.',
             products: [
-                { name: 'Lithium', description: 'Battery-grade lithium compounds for energy storage applications' },
-                { name: 'Lead', description: 'Industrial-grade lead for construction and manufacturing' },
-                { name: 'Copper', description: 'High-purity copper for electrical and industrial applications' },
-                { name: 'Zinc', description: 'Premium zinc for galvanization and alloy production' },
-                { name: 'Mica', description: 'Industrial mica for electrical insulation and cosmetics' },
-                { name: 'Rose Quartz', description: 'Decorative and industrial quartz varieties' }
+                { name: 'Lithium', image: 'product/lithium.jpg', description: 'Battery-grade lithium compounds for energy storage applications' },
+                { name: 'Lead', image: 'product/lead.webp', description: 'Industrial-grade lead for construction and manufacturing' },
+                { name: 'Copper', image: 'product/copper.jpg', description: 'High-purity copper for electrical and industrial applications' },
+                { name: 'Zinc', image: 'product/zinc.jpg',description: 'Premium zinc for galvanization and alloy production' },
+                { name: 'Mica', image: 'product/mica.jpg',description: 'Industrial mica for electrical insulation and cosmetics' },
+                { name: 'Rose Quartz', image: 'product/rosequartz.webp',description: 'Decorative and industrial quartz varieties' }
             ]
         },
         precious: {
@@ -31,12 +31,12 @@ const ProductsPage = () => {
             icon: '💎',
             description: 'Certified precious stones with secure handling and international delivery.',
             products: [
-                { name: 'Ruby', description: 'Premium rubies in various cuts and grades' },
-                { name: 'Sapphire', description: 'Blue and fancy sapphires with certification' },
-                { name: 'Emerald', description: 'High-quality emeralds with authenticity guarantees' },
-                { name: 'Tourmaline', description: 'Multi-colored tourmaline in collector grades' },
-                { name: 'Gold', description: 'Refined gold in various forms and purities' },
-                { name: 'Aquamarine', description: 'Clear aquamarine stones for jewelry applications' }
+                { name: 'Ruby', image: 'product/ruby.jpg',description: 'Premium rubies in various cuts and grades' },
+                { name: 'Sapphire', image: 'product/sapphire.webp',description: 'Blue and fancy sapphires with certification' },
+                { name: 'Emerald', image: 'product/emerald.jpeg',description: 'High-quality emeralds with authenticity guarantees' },
+                { name: 'Tourmaline', image: 'product/tourmaline.jpg',description: 'Multi-colored tourmaline in collector grades' },
+                { name: 'Gold', image: 'product/gold.jpeg',description: 'Refined gold in various forms and purities' },
+                { name: 'Aquamarine', image: 'product/aquamarine.webp',description: 'Clear aquamarine stones for jewelry applications' }
             ]
         },
         agricultural: {
@@ -44,13 +44,13 @@ const ProductsPage = () => {
             icon: '🌾',
             description: 'Fresh agricultural commodities sourced directly from farmers with fair trade practices.',
             products: [
-                { name: 'Maize', description: 'Yellow and white corn varieties for food and feed' },
-                { name: 'Cassava', description: 'Fresh cassava roots and processed flour' },
-                { name: 'Groundnut', description: 'Premium peanuts for oil production and consumption' },
-                { name: 'Cashew', description: 'Raw cashew nuts from sustainable farms' },
-                { name: 'Cocoa', description: 'High-quality cocoa beans for chocolate production' },
-                { name: 'Sesame', description: 'White and black sesame seeds for oil and food use' },
-                { name: 'Ginger/Garlic', description: 'Fresh spices and aromatics for global markets' }
+                { name: 'Maize', image: 'product/maize.jpg',description: 'Yellow and white corn varieties for food and feed' },
+                { name: 'Cassava', image: 'product/cassava.webp',description: 'Fresh cassava roots and processed flour' },
+                { name: 'Groundnut', image: 'product/groundnut.jpg',description: 'Premium peanuts for oil production and consumption' },
+                { name: 'Cashew', image: 'product/cashew.webp',description: 'Raw cashew nuts from sustainable farms' },
+                { name: 'Cocoa', image: 'product/cocoa.jpg',description: 'High-quality cocoa beans for chocolate production' },
+                { name: 'Sesame', image: 'product/sesame.jpeg',description: 'White and black sesame seeds for oil and food use' },
+                { name: 'Ginger/Garlic', image: 'product/ginger-garlic.jpg',description: 'Fresh spices and aromatics for global markets' }
             ]
         }
     };
@@ -100,7 +100,12 @@ const ProductsPage = () => {
                         {productCategories[activeCategory].products.map((product, index) => (
                             <div key={index} className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
                                 <h3 className="text-lg font-bold text-gray-900 mb-3">{product.name}</h3>
-                                <p className="text-gray-600 text-sm">{product.description}</p>
+                                <img
+                                    src={product.image}
+                                    alt="Global Business Leadership"
+                                    className="w-full h-40 object-cover rounded-md shadow-lg"
+                                />
+                                <p className="text-gray-600 text-sm mt-3">{product.description}</p>
                             </div>
                         ))}
                     </div>
