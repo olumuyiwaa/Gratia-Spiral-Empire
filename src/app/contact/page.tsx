@@ -225,7 +225,7 @@ const ContactPage = () => {
                             </p>
                             <div className="flex gap-4">
                                 <button
-                                    onClick={() => window.open('https://wa.me/1234567890', '_blank')}
+                                    onClick={() => window.open('https://wa.me/+37253912363', '_blank')}
                                     className="bg-green-500 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-600 transition-colors"
                                 >
                                     <div className="flex gap-2">
