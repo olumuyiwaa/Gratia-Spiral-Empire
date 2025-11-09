@@ -1,11 +1,17 @@
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import ImageSlideshow from '@/components/ImageSlideshow';
 const featureToCategory: Record<string, 'minerals' | 'precious' | 'agricultural'> = {
   'Solid Minerals': 'minerals',
   'Precious Stones': 'precious',
   'Agricultural Products': 'agricultural',
 };
-
+const images = [
+  { src: "/landing/global-logistics-transportation-network.jpg", alt: "Global Logistics Transportation Network" },
+  { src: "/landing/solid-minerals.jpg", alt: "Solid Minerals" },
+  { src: "/landing/commodity-trade-africa.jpg", alt: "Commodity Trade Africa" },
+  { src: "/landing/agricultural-products-export.webp", alt: "Agricultural Products Export" }
+];
 export default function HomePage() {
   return (
       <div>
@@ -16,7 +22,7 @@ export default function HomePage() {
               <div>
                 <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
                   Your Trusted Partner in
-                  <span className="text-emerald-600 block">Global Commodity Trade</span>
+                  <span className="text-emerald-600 font-black block pt-4">Global Commodity Trade</span>
                 </h1>
                 <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                   Welcome to Gratia Spiral Empire, a premier Estonian-based trading company specializing in solid minerals, precious stones, and agricultural products. With deep sourcing roots across West Africa and a global vision, we connect high-quality resources to global markets—ethically, reliably, and efficiently.
@@ -37,13 +43,7 @@ export default function HomePage() {
                   </Link>
                 </div>
               </div>
-              <div className="relative">
-                <img
-                    src="/global-logistics-transportation-network.jpg"
-                    alt="Global Logistics Transportation Network"
-                    className="w-full h-96 object-cover rounded-2xl shadow-lg"
-                />
-              </div>
+              <ImageSlideshow images={images} />
             </div>
           </div>
         </section>
@@ -105,6 +105,7 @@ export default function HomePage() {
                       </div>
                       <h3 className="text-xl font-bold text-gray-900 mb-4">{feature.title}</h3>
                       <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+                      <p className="text-gray-600 font-bold leading-relaxed pt-4">Learn more...</p>
                     </div>
                   </Link>
 
