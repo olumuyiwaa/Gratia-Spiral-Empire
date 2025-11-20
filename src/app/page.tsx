@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import ImageSlideshow from '@/components/ImageSlideshow';
+import ProductImageSlider from "@/components/ProductImageSlider";
+import React from "react";
 const featureToCategory: Record<string, 'minerals' | 'precious' | 'agricultural'> = {
   'Solid Minerals': 'minerals',
   'Precious Stones': 'precious',
@@ -8,9 +10,10 @@ const featureToCategory: Record<string, 'minerals' | 'precious' | 'agricultural'
 };
 const images = [
   { src: "/landing/global-logistics-transportation-network.jpg", alt: "Global Logistics Transportation Network" },
-  { src: "/landing/solid-minerals.jpg", alt: "Solid Minerals" },
-  { src: "/landing/commodity-trade-africa.jpg", alt: "Commodity Trade Africa" },
-  { src: "/landing/agricultural-products-export.webp", alt: "Agricultural Products Export" }
+  { src: "/landing/slide2.jpeg", alt: "slide2" },
+  { src: "/landing/slide3.jpeg", alt: "slide3" },
+  { src: "/landing/slide4.jpeg", alt: "slide4" },
+  { src: "/landing/slide5.jpeg", alt: "slide5" },
 ];
 export default function HomePage() {
   return (
@@ -82,28 +85,54 @@ export default function HomePage() {
                 {
                   title: 'Solid Minerals',
                   description: 'Premium quality lithium, copper, zinc, mica, and other essential minerals sourced responsibly from West Africa.',
-                  icon: '🪨',
+                  images: [
+                    'product/tin-ore.jpeg',
+                    'product/rosequartz.webp',
+                    'product/mica.jpg',
+                    'product/zinc.jpg',
+                    'product/copper.jpg',
+                    'product/lead.webp',
+                    'product/lithium.jpg',
+                  ],
                   color: 'from-blue-500 to-blue-600'
                 },
                 {
                   title: 'Precious Stones',
                   description: 'Certified gemstones including ruby, sapphire, emerald, and gold with secure handling and delivery.',
-                  icon: '💎',
+                  images: [
+                    'product/aquamarine.webp',
+                    'product/gold.jpeg',
+                    'product/tourmaline.jpg',
+                    'product/emerald.jpeg',
+                    'product/sapphire.webp',
+                    'product/ruby.jpg',
+                  ],
                   color: 'from-purple-500 to-purple-600'
                 },
                 {
                   title: 'Agricultural Products',
                   description: 'Fresh agricultural commodities from maize and cassava to cocoa and sesame, directly from farmers.',
-                  icon: '🌾',
+                  images: [
+                    'product/hibiscus1.jpg',
+                    'product/moringa-aloe1.jpg',
+                    'product/black-pepper1.jpg',
+                    'product/soya-beans1.jpg',
+                    'product/nut-mix.jpeg',
+                    'product/ginger-garlic.jpg',
+                    'product/sesame.jpeg',
+                    'product/cocoa.jpg',
+                    'product/cashew.webp',
+                    'product/groundnut.jpg',
+                    'product/cassava.webp',
+                    'product/maize.jpg',
+                  ],
                   color: 'from-green-500 to-green-600'
                 }
               ].map((feature, index) => (
                   <Link href={`/products#${featureToCategory[feature.title] || 'minerals'}`} className="block">
                     <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow group-hover:shadow-xl">
-                      <div className={`w-16 h-16 bg-gradient-to-r ${feature.color} rounded-lg flex items-center justify-center text-2xl mb-6`}>
-                        {feature.icon}
-                      </div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-4">{feature.title}</h3>
+                      <ProductImageSlider images={feature.images} />
+                      <h3 className="text-xl font-bold text-gray-900 mb-4 mt-4">{feature.title}</h3>
                       <p className="text-gray-600 leading-relaxed">{feature.description}</p>
                       <p className="text-gray-600 font-bold leading-relaxed pt-4">Learn more...</p>
                     </div>
