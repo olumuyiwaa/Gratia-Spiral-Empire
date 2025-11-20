@@ -19,24 +19,24 @@ const Footer = () => {
                             Your trusted partner in global commodity trade, connecting Africa's natural wealth to global markets through ethical sourcing and strategic partnerships.
                         </p>
                         <div className="flex space-x-4">
-                            <SocialLink href="https://facebook.com/" label="Facebook">
+                            <SocialLink href="https://www.facebook.com/share/18ujey98ve/?mibextid=wwXIfr" label="Facebook">
                                 <svg fill="none" viewBox="0 0 24 24" className="w-4 h-4 text-white" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M17 2.05C15.67 2.02 14.33 2 13 2C7.48 2 3 6.48 3 12c0 4.84 3.66 8.84 8.34 9.8v-6.93H8.1v-2.87h3.24V9.84c0-3.2 1.92-4.96 4.85-4.96 1.41 0 2.89.25 2.89.25v3.18h-1.63c-1.61 0-2.11.99-2.11 2v2.4h3.59l-.57 2.87h-3.02v6.93C20.34 20.84 24 16.84 24 12c0-5.52-4.48-10-10-10-.33 0-.67.01-1 .05z" fill="currentColor"/>
                                 </svg>
                             </SocialLink>
-                            <SocialLink href="https://twitter.com/" label="Twitter">
+                            <SocialLink href="" label="Twitter">
                                 <svg fill="none" viewBox="0 0 24 24" className="w-4 h-4 text-white" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M23 3a10.9 10.9 0 01-3.14 1.53A4.48 4.48 0 0022.4.36a9.09 9.09 0 01-2.88 1.1A4.48 4.48 0 0016.11 0c-2.5 0-4.52 2.02-4.52 4.52 0 .35.04.7.11 1.03C7.69 5.4 4.07 3.67 1.64 1.15c-.38.65-.6 1.4-.6 2.2 0 1.52.77 2.86 1.95 3.65A4.48 4.48 0 01.96 6v.06c0 2.13 1.52 3.91 3.54 4.31-.37.1-.76.16-1.16.16-.28 0-.56-.03-.83-.08.56 1.76 2.19 3.04 4.13 3.08A9.01 9.01 0 012 19.54a12.8 12.8 0 006.92 2.03c8.3 0 12.85-6.87 12.85-12.85 0-.2 0-.39-.01-.58A9.22 9.22 0 0023 3z" fill="currentColor"/>
                                 </svg>
                             </SocialLink>
-                            <SocialLink href="https://instagram.com/" label="Instagram">
+                            <SocialLink href="" label="Instagram">
                                 <svg fill="none" viewBox="0 0 24 24" className="w-4 h-4 text-white" xmlns="http://www.w3.org/2000/svg">
                                     <rect width="20" height="20" x="2" y="2" rx="5" stroke="currentColor" strokeWidth="2"/>
                                     <circle cx="12" cy="12" r="5" stroke="currentColor" strokeWidth="2"/>
                                     <circle cx="17" cy="7" r="1.5" fill="currentColor"/>
                                 </svg>
                             </SocialLink>
-                            <SocialLink href="https://t.me/yourtelegramusername" label="Telegram">
+                            <SocialLink href="https://t.me/+37253912363" label="Telegram">
                                 <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 text-white" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M21.944 4.667a1.5 1.5 0 00-1.62-.217L3.47 11.44c-1.06.44-1.03 1.97.05 2.36l3.44 1.23 2.02 6.38c.29.92 1.48 1.09 1.97.25l2.13-3.57 3.97 2.92c.83.61 2.01.17 2.23-.8l3.13-13.13a1.5 1.5 0 00-.35-1.36zm-3.41 2.02l-8.19 7.16 1.97 6.23 2.13-3.57a1.5 1.5 0 01.97-.67l4.97-.87-1.85-8.28zm-8.19 7.16l-3.44-1.23 11.63-4.84-8.19 7.16z"/>
                                 </svg>

@@ -236,7 +236,7 @@ const ContactPage = () => {
                                     </div>
                                 </button>
                                 <button
-                                    onClick={() => window.open('https://t.me/yourtelegram', '_blank')}
+                                    onClick={() => window.open('https://t.me/+37253912363', '_blank')}
                                     className="bg-blue-500 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-600 transition-colors"
                                 >
                                     <div className="flex gap-2">
