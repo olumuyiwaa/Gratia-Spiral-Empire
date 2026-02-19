@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import ProductImageSlider from "@/components/ProductImageSlider";
+import {motion} from "framer-motion";
 
 type Product = {
     name: string;
@@ -274,7 +275,7 @@ const ProductsPage = () => {
                         'product/groundnut6.jpeg',
                     ],
                     description:
-                        'Premium peanuts for oil production and consumption',
+                        'Premium Groundnut for oil production and consumption',
                 },
                 {
                     name: 'Cashew',
@@ -456,7 +457,24 @@ const ProductsPage = () => {
                                 {product.name}
                             </h3>
 
-                            <ProductImageSlider images={product.images} />
+                            <div className="relative w-full h-40 mb-4">
+                                <img
+                                    src={product.images[0]}
+                                    alt={product.name}
+                                    className="w-full h-full object-cover rounded-lg"
+                                />
+                            </div>
+                            {/*<motion.img*/}
+                            {/*    key={index}*/}
+                            {/*    src={product.images[1]}*/}
+                            {/*    className="w-full h-40 object-cover absolute inset-0"*/}
+                            {/*    initial={{ opacity: 0 }}*/}
+                            {/*    animate={{ opacity: 1 }}*/}
+                            {/*    exit={{ opacity: 0 }}*/}
+                            {/*    transition={{ duration: 0.3 }}*/}
+                            {/*/>*/}
+
+                            {/*<ProductImageSlider images={product.images} />*/}
 
                             <p className="text-gray-600 text-sm mt-3">
                                 {product.description}
@@ -488,7 +506,7 @@ const ProductsPage = () => {
                                 <img
                                     key={i}
                                     src={img}
-                                    className="w-full h-40 object-cover rounded-lg shadow"
+                                    className="w-full h-52 object-cover rounded-lg shadow"
                                 />
                             ))}
                         </div>
