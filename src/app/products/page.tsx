@@ -464,17 +464,6 @@ const ProductsPage = () => {
                                     className="w-full h-full object-cover rounded-lg"
                                 />
                             </div>
-                            {/*<motion.img*/}
-                            {/*    key={index}*/}
-                            {/*    src={product.images[1]}*/}
-                            {/*    className="w-full h-40 object-cover absolute inset-0"*/}
-                            {/*    initial={{ opacity: 0 }}*/}
-                            {/*    animate={{ opacity: 1 }}*/}
-                            {/*    exit={{ opacity: 0 }}*/}
-                            {/*    transition={{ duration: 0.3 }}*/}
-                            {/*/>*/}
-
-                            {/*<ProductImageSlider images={product.images} />*/}
 
                             <p className="text-gray-600 text-sm mt-3">
                                 {product.description}
