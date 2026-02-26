@@ -476,32 +476,39 @@ const ProductsPage = () => {
             {/* MODAL */}
             {selectedProduct && (
                 <div
-                    className="fixed inset-0 bg-black/60 flex justify-center items-center z-50"
+                    className="fixed inset-0 bg-black/60 flex justify-center items-center z-50 p-4"
                     onClick={() => setSelectedProduct(null)}
                 >
                     <div
-                        className="bg-white rounded-xl p-6 max-w-4xl w-full relative"
+                        className="bg-white rounded-xl w-full max-w-4xl relative max-h-[90vh] flex flex-col"
                         onClick={(e) => e.stopPropagation()}
                     >
+                        {/* Close Button */}
                         <button
-                            className="absolute top-3 right-3 text-gray-600 hover:text-black text-xl"
+                            className="absolute top-3 right-3 text-gray-600 hover:text-black text-xl z-10"
                             onClick={() => setSelectedProduct(null)}
                         >
                             ✕
                         </button>
 
-                        <h2 className="text-xl font-bold mb-4 text-gray-900">
-                            {selectedProduct.name}
-                        </h2>
+                        {/* Header */}
+                        <div className="p-6 pb-4 border-b">
+                            <h2 className="text-xl font-bold text-gray-900">
+                                {selectedProduct.name}
+                            </h2>
+                        </div>
 
-                        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                            {selectedProduct.images.map((img, i) => (
-                                <img
-                                    key={i}
-                                    src={img}
-                                    className="w-full h-52 object-cover rounded-lg shadow"
-                                />
-                            ))}
+                        {/* Scrollable Content */}
+                        <div className="p-6 overflow-y-auto">
+                            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                                {selectedProduct.images.map((img, i) => (
+                                    <img
+                                        key={i}
+                                        src={img}
+                                        className="w-full h-52 object-cover rounded-lg shadow"
+                                    />
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>
