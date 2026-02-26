@@ -331,7 +331,6 @@ const ProductsPage = () => {
                     images: [
                         'product/nut-mix.jpeg',
                         'product/nut-mix2.jpg',
-                        'product/nut-mix3.jpg',
                         'product/nut-mix4.jpg',
                         'product/nut-mix5.jpeg',
                         'product/nut-mix6.jpg',
@@ -476,9 +475,14 @@ const ProductsPage = () => {
 
             {/* MODAL */}
             {selectedProduct && (
-                <div className="fixed inset-0 bg-black/60 flex justify-center items-center z-50">
-                    <div className="bg-white rounded-xl p-6 max-w-4xl w-full relative">
-
+                <div
+                    className="fixed inset-0 bg-black/60 flex justify-center items-center z-50"
+                    onClick={() => setSelectedProduct(null)}
+                >
+                    <div
+                        className="bg-white rounded-xl p-6 max-w-4xl w-full relative"
+                        onClick={(e) => e.stopPropagation()}
+                    >
                         <button
                             className="absolute top-3 right-3 text-gray-600 hover:text-black text-xl"
                             onClick={() => setSelectedProduct(null)}
@@ -499,7 +503,6 @@ const ProductsPage = () => {
                                 />
                             ))}
                         </div>
-
                     </div>
                 </div>
             )}
